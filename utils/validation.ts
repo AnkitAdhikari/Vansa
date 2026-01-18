@@ -28,6 +28,7 @@ export const addProductSchema = z.object({
   name: z.string().min(1, 'Product name is required').max(50, 'Product name too long'),
   category: productCategorySchema,
   quantityPercent: z.number().min(0).max(100),
+  status: z.enum(['inStock', 'low', 'out', 'needed']),
 });
 
 export const editProductSchema = addProductSchema.extend({
